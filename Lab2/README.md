@@ -122,7 +122,7 @@ if __name__ =='__main__':
     enc = encrypt(key, iv, str.encode(QUOTE))
 
     f_out = open(filename + ".enc", 'wb')
-    content_to_write = base64.b64encode(enc + key + iv)
+    content_to_write = base64.b64encode(iv + enc + key)
     f_out.write(content_to_write)
     f_out.close()
 ```
