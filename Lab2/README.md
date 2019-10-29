@@ -99,13 +99,9 @@ def encrypt(key, iv, plaintext):
     padded_plaintext = padder.update(plaintext)
     padded_plaintext += padder.finalize()
 
-    cipher = Cipher(CIPHER(key), modes.CBC(iv), backend=default_backend())
+    cipher = Cipher(CIPHER(key), modes.CTR(iv), backend=default_backend())
     encryptor = cipher.encryptor()
-    ciphertext_1 = encryptor.update(padded_plaintext)
-    ciphertext_1 += encryptor.finalize()
-
-    encryptor = cipher.encryptor()
-    ciphertext = encryptor.update(ciphertext_1)
+    ciphertext = encryptor.update(padded_plaintext)
     ciphertext += encryptor.finalize()
 
     return ciphertext
