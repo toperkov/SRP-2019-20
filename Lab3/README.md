@@ -80,7 +80,7 @@ passcode = passcode.encode()
 KDF = Scrypt(
     length=32,
     salt=b'salt',
-    n=2**15,
+    n=2**14,
     r=8,
     p=1,
     backend=default_backend()
@@ -168,7 +168,7 @@ if __name__ =='__main__':
     KDF = Scrypt(
         length=32,
         salt=b'salt',
-        n=2**15,
+        n=2**14,
         r=8,
         p=1,
         backend=default_backend()
